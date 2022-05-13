@@ -22,3 +22,41 @@ insert into worker values
 (006,'Vipul','Diwan',200000,'14-06-11 09.00.00','Account'),
 (007,'Satish','Kumar',75000,'14-01-20 09.00.00','Account'),
 (008,'Geetika','Chauhan',90000,'14-04-11 09.00.00','Admin');
+
+create table bonus(
+worker_ref_id int,
+bonus_amount int(10),
+bonus_date datetime,
+foreign key (worker_ref_id)
+references worker(worker_id)
+);
+
+select * from bonus;
+
+
+insert into bonus values
+(001,5000,'16-02-20'),
+(002,3000,'16-06-11'),
+(003,4000,'16-02-20'),
+(001,4500,'16-02-20'),
+(002,3500,'16-06-11');
+
+create table title (
+worker_ref_id int,
+worker_title char(25),
+affected_from datetime,
+foreign key (worker_ref_id)
+references worker(worker_id)
+);
+
+select * from title;
+
+insert into title values
+(001,'Manager','2016-02-20'),
+(002,'Executive','2016-06-11'),
+(008,'Executive','2016-06-11'),
+(005,'Manager','2016-06-11'),
+(004,'Asst. manager','2016-06-11'),
+(007,'Executive','2016-06-11'),
+(006,'Lead','2016-06-11'),
+(003,'Lead','2016-06-11');
